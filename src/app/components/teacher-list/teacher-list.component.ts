@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TeacherListDataService } from '../../services/teacher-list-data.service'
-import { Teacher } from '../../services/teacher-list-data.service'// NOTE ilker importing the interface from the service
+import { TeacherListDataService } from '../../services/teacher-list-data.service';
+import { Teacher } from '../../services/teacher-list-data.service'; // Importing the interface from the service
 
 @Component({
   selector: 'app-teacher-list',
@@ -12,7 +12,9 @@ export class TeacherListComponent implements OnInit {
   teachers: Teacher[];
   isToDisplayTeachers: boolean = false;
 
-  constructor(private teacherListDataService:TeacherListDataService) { }
+  constructor(private teacherListDataService:TeacherListDataService) {
+    console.log("TeacherListComponent constructor executing");
+  }
 
   ngOnInit() {
     this.teacherListDataService.getTeachers().subscribe( (teachers) => {
